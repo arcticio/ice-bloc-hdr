@@ -1,0 +1,74 @@
+
+{% extends "base.html" %}
+
+{% block bundle %}
+
+<!-- TRENNER -->
+
+<section id="bundle" class="trenner lightgrey parallax-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8">
+                <h2 class="text-left">Notes for Month: {{ year }}-{{ month }}</h2>
+            </div>
+        </div>
+    </div>      
+</section>
+
+<div id="mainCol" class="fix"><a name="main"></a>
+
+
+<!-- BUNDLE section -->
+
+<section id="news" class="parallax-section">
+    <div class="container">
+
+        <div class="row">
+            <div class="news col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+            
+                <div class="row">
+                  
+                    {% if articles %}
+                        {% for article in articles %}
+                            {% include 'excerpt.html' %}
+                        {% endfor %}
+
+                    {% else %}
+                        <p class="no-entries">
+                            No articles for this period.
+                        </p>
+
+                    {% endif %}
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-offset-2 col-xs-10 col-sm-offset-1 col-sm-11 col-md-offset-2 col-md-10 col-lg-offset-9 col-lg-9">
+
+            <div class="col-xs-4 col-sm-4 text-left">
+                {% if prev_offset %}
+                    <a href="/{{year}}?{{ query_string }}offset={{ prev_offset }}&limit={{ limit }}#bundle">Prev</a>
+                {% endif %}
+            </div>
+            
+            <div class="col-xs-4 col-sm-4 text-center">
+                <hr />
+             </div>
+
+            <div class="col-xs-4 col-sm-4 text-right">
+                {% if next_offset %}
+                    <a href="/{{year}}?{{ query_string }}offset={{ next_offset }}&limit={{ limit }}#bundle">Next</a>
+                {% endif %}
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

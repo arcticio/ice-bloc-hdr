@@ -1,0 +1,21 @@
+User-agent: *
+Disallow: /wikipedia
+Disallow: /explorer
+Disallow: /admin
+Disallow: /search
+Disallow: /contact
+Disallow: /post/edit
+
+User-agent: Radian6
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: CloudEndure Scanner
+Disallow: /
+User-agent: CloudEndure
+Disallow: /

@@ -1,0 +1,29 @@
+
+{% extends "contact.base.html" %}
+
+{% block contact %}
+
+    <div style="width: 100%; padding: 0 16px">
+        <div id="info" class="text-center"></div>
+    </div>
+
+    <form action="#" method="post">
+        <div class="col-xs-12">
+            <input name="name" type="text" class="form-control" id="name" placeholder="Name" value="">
+        </div>
+        <div class="col-xs-12">
+            <input name="email" type="email" class="form-control" id="email" placeholder="Email" value="">
+        </div>
+        <div class="col-xs-12">
+            <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" value="">
+        </div>
+        <div class="col-xs-12">
+            <textarea name="message" rows="8" class="form-control" id="message" placeholder="Message"></textarea>
+        </div>
+        <div class="col-xs-12">
+            <input name="submit" type="submit" class="form-control" id="submit" value="Send">
+        </div>
+    </form>
+
+
+{% endblock %}

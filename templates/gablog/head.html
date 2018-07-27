@@ -1,0 +1,65 @@
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    
+    <meta name="generator" content="{{ app.name }} {{ app.version }}" />
+    <meta name="google-site-verification" content="7YLJGFjrbMHmUhhJZ-Y03R-fPRYllPEYSyUqnPyupDA" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="keywords" content="Arctic Satellite Weather Sea Ice Greenland Climate Change Global Warming">
+    <meta name="description" content="{{ description }}" />    
+
+    <link rel="apple-touch-icon" href="/images/arcticio.logo.trans.128.png" />
+
+    <script type="text/javascript">
+
+        var DEVELOP = "{{ DEVELOP }}" === "True" ? true : false;
+        var DEBUG   = "{{ DEBUG }}"   === "True" ? true : false;
+        var ADMIN   = "{{ ADMIN }}"   === "True" ? true : false;
+        var VERSION = "{{ VERSION }}";
+
+      if (typeof console === "undefined") {
+        console = { log:function(){}, warn:function(){}, error:function(){} };
+      }
+
+      window.performance = (window.performance || {
+        offset: Date.now(),
+        now: function now(){
+          return Date.now() - this.offset;
+        }
+      });
+
+      window.local = !window.location.host;
+
+      var TIM = (function(){
+        
+        var fill = new Array(18).join(" "), 
+            pad  = function(s){return (s+fill).substr(0, fill.length);},
+            now  = function( ){return (window.performance.now() / 1000).toFixed(2);}
+
+        return {
+          now: now,
+          step: function(key, com){
+            console.log (pad(key), "-", now() + "s", (com) ? com : "-");
+          }
+        };
+        
+      })();
+
+      TIM.step("INIT", ["ADM: ", ADMIN, ", DEV: ", DEVELOP, ", DEB: ", DEBUG, ", VER: ", VERSION].join(""));
+
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' type='text/css'>
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css' type='text/css'>
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/css/bootstrap-slider.css' type='text/css'>
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css' type='text/css'>
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css' type='text/css'>
+
+    <link rel='stylesheet' href='/static/css/animate.min.css'>
+    <link rel='stylesheet' href='/static/css/photoswipe.css'> 
+    <link rel='stylesheet' href='/static/css/default-skin/default-skin.css'> 
+
+    <link rel='stylesheet' href='/static/css/style.css'>
+    <link rel='stylesheet' href='/static/css/articles.css'>

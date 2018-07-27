@@ -1,0 +1,59 @@
+
+{% extends "base.html" %}
+
+{% block bundle %}
+
+    <!-- TRENNER Bundle-->
+
+    <section class="trenner darkgrey parallax-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8">
+                    <h2 class="text-left">Notes tagged with &quot;{{ tag }}&quot;</h2>
+                </div>
+                <div class="col-xs-4 text-right">
+                    <i class="fa fa-info-circle section-tool" title="Info"></i>
+                </div>
+            </div>
+        </div>      
+    </section>
+
+    {% if articles %}
+
+        {% for article in articles %}
+            {% include 'excerpt.html' %}
+        {% endfor %}
+
+        <!-- {% include 'pager.html' %} -->
+
+        <div class="row">
+          <div class="col-xs-offset-2 col-xs-10 col-sm-offset-1 col-sm-11 col-md-offset-2 col-md-10 col-lg-offset-9 col-lg-9">
+
+            <div class="col-xs-4 col-sm-4 text-left">
+                {% if prev_offset %}
+                    <a href="/tag/{{ tag }}?{{ query_string }}offset={{ prev_offset }}&limit={{ limit }}#bundle">Prev</a>
+                {% endif %}
+            </div>
+            
+            <div class="col-xs-4 col-sm-4 text-center">
+                <hr />
+             </div>
+
+            <div class="col-xs-4 col-sm-4 text-right">
+                {% if next_offset %}
+                    <a href="/tag/{{ tag }}?{{ query_string }}offset={{ next_offset }}&limit={{ limit }}#bundle">Next</a>
+                {% endif %}
+            </div>
+
+          </div>
+        </div>
+
+    {% else %}
+
+        <p class="no-entries">
+            No articles have been written yet.
+        </p>
+
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+<blockquote>Your request is invalid. Please try again. If you believe this has occurred in error, please email <a href="mailto:support@earthdata.nasa.gov?subject=Image Download Error">support@earthdata.nasa.gov</a><br><br><b>Please note:</b> If you are trying to obtain an image snapshot containing externally hosted layers such as SEDAC Level-1 Administrative Boundaries, please remove them and try your request again. We are working to include the external layers in a future release. <br><br>Here is a list of externally hosted layers:<br><br> &bull; SEDAC / Global Labels<br>
+ &bull; SEDAC / L1 Admin Boundaries<br>
+ &bull; SEDAC / Coastlines v3<br>
+ &bull; SEDAC GRUMP v1 Population Count 2000<br>
+ &bull; SEDAC Global Cyclone Hazard Frequency and Distribution, v1 (1980-2000)<br>
+ &bull; SEDAC Global Cyclone Mortality Risks and Distribution, v1 (2000)<br>
+ &bull; SEDAC Global Cyclone Proportional Economic Loss Risk Deciles, v1 (2000)<br>
+ &bull; SEDAC Global Drought Hazard Frequency and Distribution, v1 (1980-2000)<br>
+ &bull; SEDAC Global Drought Mortality Risks and Distribution, v1 (2000)<br>
+ &bull; SEDAC Global Drought Proportional Economic Loss Risk Deciles, v1 (2000)<br>
+ &bull; SEDAC Global Flood Hazard Frequency and Distribution, v1 (1980-2000)<br>
+ &bull; SEDAC Global Flood Mortality Risks and Distribution, v1 (2000)<br>
+ &bull; SEDAC Global Flood Proportional Economic Loss Risk Deciles, v1 (2000)<br>
+ &bull; SEDAC Global Volcano Hazard Frequency and Distribution, v1 (1980-2000)<br>
+ &bull; SEDAC Global Volcano Mortality Risks and Distribution, v1 (2000)<br>
+ &bull; SEDAC Global Volcano Proportional Economic Loss Risk Deciles, v1 (2000)<br>
+ &bull; Latitude-Longitude Lines (OpenLayers / Graticule Control)</blockquote>

@@ -1,0 +1,16 @@
+
+<p class="date-published text-right" title="date of publishing">{{ article.published|date:'Y-m-d' }}</p>
+<p class="date-updated text-right" title="date of last update">{{ article.updated|date:'Y-m-d H:i' }}</p>
+<p class="author text-right" title="author">arcticio</p>
+{% if tags %}
+  <ul class="tags text-right list-unstyled">
+    {% for tag in article.tags %}
+      <li><a href="/tag/{{ tag|urlencode }}" title="post tag">{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% if user_is_admin %}
+  <p class="text-right">
+    <a href="/post/edit/{{ article.key }}">edit</a>
+  </p>
+{% endif %}

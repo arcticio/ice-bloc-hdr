@@ -1,0 +1,170 @@
+<!-- SCRIPTS section -->
+
+{% if not DEBUG %}
+	<script src="/static/js/strftime.min.js"></script>
+{% else %}
+	<script src="/static/js/strftime.js"></script> 
+{% endif %}
+
+<script type="text/javascript">
+
+	TIM.step("UTC",  [strftime.timezone(0)("%Y-%m-%d %H:%M:%S", new Date() ), "- LOCAL:", strftime("%Y-%m-%d %H:%M:%S", new Date() )].join(" "));
+
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.js"></script>
+
+<script src="/static/js/framework/jquery.parallax.js"></script>
+<script src="/static/js/framework/smoothscroll.js"></script>
+<script src="/static/js/framework/jquery.bootstrap-autohidingnavbar.min.js"></script>
+<script src="/static/js/framework/wow.min.js"></script>
+
+<script src="/static/js/helper.js"></script>
+<script src="/static/js/sections.js"></script>
+
+
+{% if 'Data' in sections %}
+
+	{% if not DEBUG %}
+
+		<script src="/static/js/gallery.pack.min.js"></script>
+
+	{% else %}
+
+		<script src="/static/js/gallery/gallery.js"></script> 
+		<script src="/static/js/gallery/photoswipe.js"></script> 
+		<script src="/static/js/gallery/photoswipe-ui-default.js"></script> 
+		<script src="/static/js/gallery/init.gallery.js"></script>
+
+	{% endif %}
+
+{% endif %}
+
+
+{% if 'Simulation' in sections %}
+
+	{% if not DEBUG %}
+		<script src="/cache/http/noiv.pythonanywhere.com/data/timeranges.js"></script>
+
+	{% else %}
+		<script src="http://noiv.pythonanywhere.com/data/timeranges.js"></script>
+
+	{% endif %}
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.14/proj4.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/async/1.5.2/async.min.js"></script>
+
+	<script type="text/javascript"> var SIM = {}; </script>
+
+	{% if not DEBUG %}
+		<script src="/static/js/simulator.pack.min.js"></script>
+
+	{% else %}
+		<script src="/static/js/simulator/canvas-toBlob.js"></script>
+		<script src="/static/js/simulator/FileSaver.min.js"></script>
+		<script src="/static/js/simulator/gifshot.min.js"></script>
+		<script src="/static/js/simulator/canvasjs.min.js"></script>
+		<script src="/static/js/simulator/sim.vars.js"></script>
+		<script src="/static/js/simulator/sim.marray.js"></script>
+		<script src="/static/js/simulator/sim.blender.js"></script>
+		<script src="/static/js/simulator/sim.model.js"></script>
+		<script src="/static/js/simulator/sim.syncer.js"></script>
+		<script src="/static/js/simulator/simulator.js"></script>
+
+	{% endif %}
+
+
+{% endif %}
+
+
+{% if 'Editor' in sections %}
+
+	<script src="/static/js/editor.js"></script> 
+
+{% endif %}
+
+
+{% if 'Explorer' in sections %}
+	
+	{% if not DEBUG %}
+		<script src="/cache/http/noiv.pythonanywhere.com/data/timeranges.js"></script>
+
+	{% else %}
+		<script src="http://noiv.pythonanywhere.com/data/timeranges.js"></script>
+		
+	{% endif %}
+
+	<script type="text/javascript">
+
+	  (function(){
+	    var out = {}, tr;
+	    for (tr in dataTimeRanges) {
+	      if (dataTimeRanges.hasOwnProperty(tr) && tr !== "stamp"){
+	        out[tr] = dataTimeRanges[tr].length;
+	      }
+	    }
+	    TIM.step("Ranges", dataTimeRanges.stamp + " / " + JSON.stringify(out).split('"').join(''));
+	  })();
+
+	</script>
+
+	<script src="//maps.google.com/maps/api/js?v=3&key=AIzaSyCpNU_zklhsfdODQXAMyGQwS53kEHoBEGM"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.14/proj4.js"></script>
+
+
+	{% if not DEBUG %}
+
+		<script src="/static/js/explorer.pack.min.js"></script>
+
+	{% else %}
+	
+		<script src="/static/js/explorer/leaflet-src.js"></script>
+		<script src="/static/js/explorer/proj4leaflet.2.js"></script>
+		<script src="/static/js/explorer/L.Control.Zoomslider.js" ></script>
+		<script src="/static/js/explorer/L.Control.Coordinates.js" ></script>
+		<script src="/static/js/explorer/L.Control.Loading.js"></script>
+		<script src="/static/js/explorer/L.Control.FullScreen.js"></script>
+		<script src="/static/js/explorer/L.FullCanvas.js"></script>
+		<script src="/static/js/explorer/L.SimOverlay.js"></script>
+		<script src="/static/js/explorer/L.Map.Sync.js"></script>
+		<script src="/static/js/explorer/L.Google.js"></script>
+
+		<script src="/static/js/explorer/aio-Version.js"></script>
+		<script src="/static/js/explorer/aio-Time.js"></script>
+		<script src="/static/js/explorer/aio-Plugins.js"></script>
+		<script src="/static/js/explorer/aio-Calendar.js"></script>
+		<script src="/static/js/explorer/aio-Layers.js"></script>
+		<script src="/static/js/explorer/aio-Maps.js"></script>   
+
+	{% endif %}
+
+
+{% endif %}
+
+
+<script type="text/javascript">
+
+	TIM.step("LOADED", "Scripts");
+
+	function warning (text, header){
+
+		if (text){
+			$("#warning").css({display: 'block'});
+			$("#warning-text").text(text);
+			$("#warning-header").text(header || "Error/Warning: ");
+
+		} else {
+			$("#warning").css({display: 'none'});
+
+		}
+
+	}
+
+	function eat (e) {
+		e.preventDefault(); return false;
+	}
+
+</script>

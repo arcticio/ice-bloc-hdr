@@ -1,0 +1,44 @@
+<!-- FOOTER section -->
+
+<section id="footer">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-xs-12">
+
+				<span class="footer-info">V:{{ VERSION }}</span>, 
+
+				{% if DEBUG or user_is_admin %}
+
+				  {% if DEBUG or user_is_admin %}
+				  	<span id="" class="footer-info">ADMIN</span> - 
+				  {% endif %}
+				  <span id="" class="footer-info">DEBUG</span> - 
+				  <span class="footer-info">{{ user.nickname }}</span>, 
+				  <span class="footer-info">{{ user.email }}</span>, 
+
+
+				{% endif %}
+
+				<a href="{{ login_url|escape }}" title="Login">login</a> - 
+				<a href="{{ logout_url|escape }}" title="Logout">logout</a>
+				
+				<span class="footer-info">{% now "jS F Y H:i" %}</span>, 
+				<span class="footer-info">{% now "Y-z" %}</span>, 
+
+			</div>
+		</div>
+
+		{% if DEBUG or user_is_admin %}
+
+			<div class="row">
+				<div class="col-xs-12">
+					{{ handler }}<br />
+					{{ sections }}
+				</div>
+			</div>
+
+		{% endif %}
+
+	</div>
+</section>

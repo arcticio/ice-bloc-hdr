@@ -1,0 +1,72 @@
+
+{% extends "base.html" %}
+
+{% block bundle %}
+
+<!-- TRENNER -->
+
+<section id="bundle" class="trenner lightgrey parallax-section" style="margin-top: 54px">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 text-left">
+                {% if year %}
+                    <h2 class="text-left">Entries for Year: {{ year }}</h2>
+                {% else %}
+                    <h2 class="text-left">All Entries</h2>
+                {% endif %}
+            </div>
+            <div class="col-xs-6 text-right" style="padding-top: 12px">
+                <a class="" href="/list/all/?limit=1000"     >ALL</a>
+                <a class="" href="/list/all/2016/?limit=1000">2016</a>
+                <a class="" href="/list/all/2015/?limit=1000">2015</a>
+                <a class="" href="/list/all/2014/?limit=1000">2014</a>
+                <a class="" href="/list/all/2013/?limit=1000">2013</a>
+                <a class="" href="/list/all/2012/?limit=1000">2012</a>
+                <a class="" href="/list/all/2011/?limit=1000">2011</a>
+                <a class="" href="/list/all/2010/?limit=1000">2010</a>
+                <a class="" href="/list/all/2009/?limit=1000">2009</a>
+            </div>
+        </div>
+    </div>      
+</section>
+
+<div id="mainCol" class="fix"><a name="main"></a>
+
+
+<!-- BUNDLE section -->
+
+<section id="collection" class="parallax-section">
+    <div class="container">
+
+        <div class="row">
+            <div class="news col-sm-12">
+
+                {% if articles %}
+                    <table class=".table-condensed" style="margin: 30px 0">
+                
+                        <tbody class="">
+
+                            {% for article in articles %}
+                                {% include 'edit_item.html' %}
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                {% else %}
+
+                    <p class="no-entries">
+                        No articles found.
+                    </p>
+
+                {% endif %}
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

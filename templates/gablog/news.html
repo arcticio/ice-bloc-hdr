@@ -1,0 +1,55 @@
+<!-- TRENNER -->
+
+<section id="news-header" class="trenner lightgrey parallax-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Notes &amp; Tweets</h2>
+			</div>
+		</div>
+	</div>		
+</section>
+
+
+<!-- NEWS section -->
+
+<section id="news" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-5">
+				{% if articles %}
+					{% for article in articles %}
+
+						<div class="row">
+							<div class="col-xs-12 text-right">
+								<div class="date">{{ article.published|date:'Y-m-d' }}</div>
+							</div>
+							<div>
+								<h3 class="title" title="post title">
+									<a href="/{{ article.permalink }}">{{ article.title }}</a>
+								</h3>
+
+								{% autoescape off %}
+									{% if article.html|needs_trunc:100 %}
+										{{ article.html|control_trunc:100 }}
+										<a href="/{{ article.permalink }}" title="Continue reading"> -&gt; continue reading</a>
+									{% else %}
+										{{ article.html }}
+									{% endif %}
+								{% endautoescape %}
+
+							</div>
+						</div>
+
+					{% endfor %}
+				{% endif %}
+			</div>
+
+			<div class="col-xs-offset-1 col-xs-10  col-sm-offset-1 col-sm-4 col-twitter">
+				{% include 'twitter.html' %}
+			</div>
+
+		</div>
+	</div>
+</section>

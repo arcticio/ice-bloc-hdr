@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title type="text">{{ app.title }} - {{ tag_name }}</title>
+	<subtitle type="html">{{ app.title }} posts tagged with &quot;{{ tag_name }}&quot;</subtitle>
+	<updated>{{ blog_updated_timestamp }}</updated>
+	<id>{{ app.title }} {{ tag_name }}</id>
+	<link rel="self" type="application/atom+xml" href="{{ blog.root_url }}tag/{{ tag_name }}/feed" />
+	<rights>Copyright (c) 2010 {{ app.author }}</rights>
+
+	<generator uri="{{ app.base_url }}" version="{{ app.version }}">
+		{{ app.name }}
+	</generator>
+
+	{% for article in articles %}
+	<entry>
+		<title>{{ article.title }}</title>
+		<link rel="alternate" type="text/html" href="{{ article.full_permalink }}" />
+		<id>{{ article.full_permalink }}</id>
+		<updated>{{ article.rfc3339_updated }}</updated>
+		<published>{{ article.rfc3339_published}}</published>
+		<author>
+			<name>{{ app.author }}</name>
+			<uri>{{ app.base_url }}</uri>
+		</author>
+		<content type="xhtml" xml:lang="en" xml:base="{{ app.base_url }}">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				{{ article.to_atom_xml }}
+			</div>
+		</content>
+	</entry>
+	{% endfor %}
+</feed>
+

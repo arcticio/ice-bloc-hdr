@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'head.html' %}
+</head>
+<body>
+
+    <section class="preloader" style="background: url('/static/loading.320.gif') 50% 50% no-repeat fixed; background-color: white" 
+        onclick="this.style.display='none'">
+        <!-- <div class="sk-spinner sk-spinner-pulse"></div> -->
+    </section>
+
+<!-- {{ sections }} -->
+
+    {% include 'warning.html' %}
+
+    {% if 'Navigation' in sections %}
+        {% include 'navigation.html' %}
+    {% endif %}
+
+    {% block home%}
+    {% if 'Home' in sections %}
+        {% include 'home.html' %}
+    {% endif %}
+    {% endblock %}
+
+<!-- EDITOR -->
+
+    {% block editor %}
+    {% endblock %}
+
+<!-- DISASTER -->
+
+    {% block disaster %}
+    {% endblock %}
+
+<!-- ARTICLE -->
+
+    {% block article %}
+    {% if 'Article' in sections %}
+        {% include 'article.html' %}
+    {% endif %}
+    {% endblock %}
+
+<!-- BLOG -->
+
+    {% block blog %}
+    {% if 'Blog' in sections %}
+        {% include 'blog/blog.html' %}
+    {% endif %}
+    {% endblock %}
+
+
+<!-- SECTIONS -->
+
+    {% if 'Sticky' in sections %}
+        {% include 'sticky.html' %}
+    {% endif %}
+
+    {% if 'News' in sections %}
+        {% include 'news.html' %}
+    {% endif %}
+
+    {% if 'Simulation' in sections %}
+        {% include 'simulation.html' %}
+    {% endif %}
+
+    {% if 'Data' in sections %}
+        {% include 'data.html' %}
+    {% endif %}
+
+    {% block bundle %}
+    {% endblock %}
+
+    {% if 'Contact' in sections %}
+        {% include 'contact.html' %}
+    {% endif %}
+
+ <!-- FOOTER -->
+
+    {% include 'footer.html' %}
+
+
+<!-- PROLOG -->
+
+    {% if 'Data' in sections %}
+        {% include 'photoswipe.html' %}
+    {% endif %}
+
+    <div style="display: none">
+
+        {% include 'scripts.html' %}
+    
+        <script type="text/javascript">
+            {% include 'init.js' %}
+        </script>
+
+        {% if not user_is_admin %}
+            {% include 'tracker.html' %}
+        {% endif %}
+
+    </div>
+
+
+</body>
+</html>

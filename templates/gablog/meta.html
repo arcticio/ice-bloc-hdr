@@ -1,0 +1,31 @@
+
+
+<div class="col-xs-offset-7 col-xs-3 col-sm-offset-0 col-sm-12 date-published text-right" title="date of publishing"    >{{ article.published|date:'Y-m-d'   }}</div>
+
+<div class="hidden-xs col-sm-12 date-updated   text-right" title="date of of last update">{{ article.updated|date:'Y-m-d H:i' }}</div>
+
+<div class="col-xs-2 col-sm-12 author         text-right" title="author">arcticio</div>
+
+{% if tags %}
+  <ul class=" col-xs-12 tags text-right list-unstyled">
+    {% for tag in article.tags %}
+      <li><a href="/tag/{{ tag|urlencode }}" title="post tag">{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if user_is_admin %}
+  <div class="col-xs-12 text-right">
+    <a href="/post/edit/{{ article.key }}">edit</a>
+  </div>
+{% endif %}
+
+{% comment %}
+
+	<p class="date-published text-right" title="date of publishing">{{ article.published|date:'Y-m-d' }}</p>
+
+	<p class="date-updated text-right" title="date of last update">{{ article.updated|date:'Y-m-d H:i' }}</p>
+
+	<p class="author text-right" title="author">arcticio</p>
+
+{% endcomment %}

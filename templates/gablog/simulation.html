@@ -1,0 +1,139 @@
+<!-- TRENNER -->
+
+<section id="simulation-header" class="trenner darkgrey parallax-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6">
+				<h2 class="section-title">WEATHER SIMULATION</h2>
+			</div>
+			<div class="col-xs-6 text-right">
+				<div class="btn-group">
+					<a href="" onclick="Simulator.toggleInfo();return false;"  ><i class="fa fa-info section-tool"     title="Help"></i></a>
+					<a href="" onclick="return Simulator.videoshot(this);"     download="" target="_blank"><i class="fa fa-film section-tool" 	title="Animated GIF"></i></a>
+					<a href="" onclick="return Simulator.screenshot(this);"  download="" target="_blank"><i class="fa fa-floppy-o section-tool" title="Screenshot"></i></a>
+					<a href="" onclick="Simulator.toggleGears();return false;" ><i class="section-tool fa fa-gears " 	title="Tools"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>		
+</section>
+
+
+
+<!-- SIMULATION section -->
+
+<section id="simulation" class="">
+	<div class="container">
+
+
+		<div class="row">
+			<div class="sim-info col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-12 col-lg-offset-0 col-lg-12"  style="display: block; margin-bottom: 12px">
+				<p>
+					This weather simulation uses a particle system to render forecast and analysis data provided by NOAA/NWS/EMC's Global Forecast System (<a href="https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/global-forcast-system-gfs" target="_blank">GFS</a>). Currently active variables are: 10m wind speed, 2m temperatures and sea ice concentration.
+				</p>
+				<p>
+					Various pre-processed time ranges are available, the simulation loads about 100k weather and 50k sea ice data per day. AMSR2 sea ice concentration data starts with 2016-01-01 and is provided by <a href="https://www.ifm.uni-hamburg.de/en/workareas/remote/remotesensing/seaice.html" target="_blank">University Hamburg, Germany.</a>
+				</p>
+				<p>
+					A click on the map retrieves the latest five days forecast with a hourly resolution for chosen latitude/longitude pair.
+				</p>
+				<p>
+					You may want to share the animated or single frame GIF. It takes a few seconds to render the animated GIF, please stay patient. It consumes a lot of CPU power and works best with Chrome on desktop.
+				</p>
+
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="sim-gui col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-12 col-lg-offset-0 col-lg-12">
+
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="btn-toolbar">
+
+							<div class="btn-group pull-left">
+								<select id="sim-ranges" class="selectpicker show-tick"></select>
+							</div>
+							<div class="btn-group pull-right">
+								<button id="sim-btn-toggle" class="btn btn-default" onclick="Simulator.animateToggle()">Stop</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row slider-bar">
+					<div class="col-xs-6 text-left"><span   id="sim-time-label-l" class="sim-slider-label">&nbsp;</span></div>
+					<div class="col-xs-6 text-right"><span  id="sim-time-label-r" class="sim-slider-label">&nbsp;</span></div>
+					<div class="col-xs-12"><input id="sim-slider" name="sim-slider" type="text" /></div>
+					<div class="col-xs-12 text-center"><span id="sim-time-label-m" class="sim-slider-label">&nbsp;</span></div>
+				</div>
+
+				<div id="sim-gears" class="row" style="display: none;">
+					<div class="row" >
+						<div class="col-xs-offset-1 col-xs-3">
+							<label>
+								<input type="radio" class="btn" name="sim-display" value="part" onclick="Simulator.toggleDisplay('part');" checked="1" />
+								Particles:
+							</label>
+						</div>
+						<div class="col-xs-6">
+							<label>
+								 <input type="number" id="sim-amount" value="1000" min="250" max="3000" step="250" oninput="Simulator.updateAmount();" /> amount
+							</label>
+							<label>
+								 <input type="number" id="sim-fps" value="30" min="10" max="60" step="10" oninput="Simulator.updateFps();" /> fps
+							</label>							
+						</div>
+					</div>
+
+					<div class="row" >
+						<div class="col-xs-offset-1 col-xs-3">
+							<label>
+								<input type="radio" class="btn" name="sim-display" value="data" onclick="Simulator.toggleDisplay('data');" />
+								Data:
+							</label>
+						</div>
+						<div class="col-xs-6">
+							<label>
+								<input type="radio" class="btn" name="sim-variable" value="tmp2m"   onclick="Simulator.toggleData('tmp2m');" checked="1" />tmp2m
+							</label>
+							<label>
+								<input type="radio" class="btn" name="sim-variable" value="ugrd10m" onclick="Simulator.toggleData('ugrd10m');" />ugrd10m
+							</label>
+							<label>
+								<input type="radio" class="btn" name="sim-variable" value="vgrd10m" onclick="Simulator.toggleData('vgrd10m');" />vgrd10m
+							</label>
+							<label>
+								<input type="radio" class="btn" name="sim-variable" value="icec"    onclick="Simulator.toggleData('icec');"  disabled />icec
+							</label>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="sim-sim col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6 col-lg-offset-0 col-lg-6">
+				<canvas id="simulator" width="768" height="768"></canvas>
+				<canvas id="sim-colorbar" width="768" height="20"></canvas>
+				<canvas id="sim-compositor" width="256" height="256" style="display:none;"></canvas>
+				<img    id="sim-background" src="/static/images/simulator/topo.768.grey.jpg" style="display:none;" />
+			</div>
+
+			<div class="sim-charts col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6 col-lg-offset-0 col-lg-6">
+
+				<div class="sim-chart-info text-center">syncing with GFS...</div>
+
+				<div id="sim-chart-1" class="sim-chart" style="height: 200px; width: 100%; display: block;"></div>
+				<div id="sim-chart-2" class="sim-chart" style="height: 200px; width: 100%; display: block;"></div>
+				<div id="sim-chart-3" class="sim-chart" style="height: 200px; width: 100%; display: block;"></div>
+
+			</div>
+		</div>
+				
+
+	</div>
+</section>		

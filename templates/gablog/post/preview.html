@@ -1,0 +1,41 @@
+
+{% if post %}
+
+  <div class="news" style="margin: 30px 0 0 0">
+
+    <div class="date">{{post.date}}</div>
+    <h3><a href="/{{post.href}}">{{post.title}}</a></h3>
+    {% autoescape off %}
+      <div class="excerpt">{% if post.excerpt %}{{post.excerpt}}{% else %}no excerpt{% endif %}</div>
+      <div class="text">{{post.html}}</div>
+    {% endautoescape %}
+    
+  </div>
+
+  <div style="font-size: 80%; font-family: monospace;">
+
+    <hr>
+
+    {% comment %}
+    
+      title: {{post.title}}<br />
+      type: {{post.type}}<br />
+      published: {{post.date}}<br />
+      updated: {{post.updated}}<br />
+      format: {{post.format}}<br />
+      tags: {{post.tags}}<br />
+      thumb: {{post.thumb}}<br />
+      article: {{post.article}}<br /><br />
+      body: {{post.body}}<br /><br />
+
+      {{post}}
+
+    {% endcomment %}
+
+  </div>
+
+{% else  %}
+
+  NO POST
+
+{% endif %}

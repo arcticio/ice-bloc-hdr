@@ -1,0 +1,12 @@
+
+<div class="col-sm-6 text-left">
+    {% if prev_offset %}
+        <a href="/{{year}}?{{ query_string }}offset={{ prev_offset }}&limit={{ limit }}#bundle">Prev</a>
+    {% endif %}
+</div>
+
+<div class="col-sm-6 text-right">
+    {% if next_offset %}
+        <a href="/{{year}}?{{ query_string }}offset={{ next_offset }}&limit={{ limit }}#bundle">Next</a>
+    {% endif %}
+</div>

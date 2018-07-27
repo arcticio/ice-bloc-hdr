@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block editor %}
+
+<!-- TRENNER -->
+
+<section class="trenner darkgrey parallax-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <h2>Editor</h2>
+      </div>
+    </div>
+  </div>    
+</section>
+
+<section id="editor" class="parallax-section">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-5">
+      	<form id="postDialogForm" method="post" action="/{{ post.href }}"><!-- {{ post.edithref }} -->
+
+          <div class="row">
+            <h2><a href="{{ post.permalink }}">Link: {{ post.title }}</a> | <a id="dbEdit" href=""> db</a></h2>
+      			<fieldset>
+
+      				<div class="row" >
+              
+                <div class="form-group">
+                  <label for="postPublished">Publish Date:</label>
+                  <input type="text" id="postPublished" value="{{ post.published|date:'Y-m-d H:i' }}" name="postPublished" size="14" /><br/>
+                  <!-- <label for="postUpdate">Update Date:</label> -->
+                  <!-- <input type="text" id="postUpdate" value="{{ post.updated|date:'Y-m-d H:i' }}" name="postUpdated" size="14" /> -->
+                  <span>updated: {{ post.updated|date:'Y-m-d H:i' }}
+                </div>
+              
+                <div class="form-group">
+                  <input type="radio" id="newdraft"   name="postType" value="draft"      /><label for="newdraft"  > Draft </label>
+                  <input type="radio" id="newblog"    name="postType" value="blog entry" /><label for="newblog"   > Blog </label>
+                  <input type="radio" id="newarticle" name="postType" value="article"    /><label for="newarticle"> Article </label>
+                </div>
+              
+                <div class="form-group">
+                  <input type="radio" id="fmtHT" name="postFormat" value="html" /><label for="fmtHT"  > html </label>
+                  <input type="radio" id="fmtMD" name="postFormat" value="markdown" /><label for="fmtMD"   > md </label>
+                  <input type="radio" id="fmtTX" name="postFormat" value="text" /><label for="fmtTX"> text </label>
+                </div>
+      				
+                <div class="form-group">
+                  <label for="postTitle">
+                    Title: <input type="text" id="postTitle" name="postTitle" class="form-control" value="{{ post.title }}"  />
+                  </label>
+                </div>
+
+                <div class="form-group"> 
+                  <label for="postPerma">
+                    Slug: <input type="text" id="postPerma" name="postPerma" class="form-control" value="{{ post.href }}"  />
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <label for="postTags">
+                    Tags: <input type="text" id="postTags" name="postTags" class="form-control" value="{{ post.tags }}"  />
+                  </label>
+                  <br /><sup><em>Separate tags with commas</em></sup>
+                </div>
+
+                <div class="form-group">
+                  <label for="postThumb">
+                    Thumb: <input type="text" id="postThumb" name="postThumb" class="form-control" value="{{ post.thumb }}"  />
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" id="submit" class="form-control" value="Submit" style="color:red; font-weight: 800"/>
+                </div>
+
+                <div class="form-group">
+                  Excerpt
+                  <textarea id="postExcerpt" class="form-control" cols="72" rows=3>{{ post.excerpt }}</textarea>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 2px">
+                  <a id="btnEditA"  class="btnPostEdit">&lt;a&gt;</a>
+                  <a id="btnEditP"  class="btnPostEdit">&lt;p&gt;</a>
+                  <a id="btnEditB"  class="btnPostEdit">&lt;b&gt;</a>
+                  <a id="btnEditI"  class="btnPostEdit">&lt;i&gt;</a>
+                  <a id="btnEditVid" class="btnPostEdit">&lt;video&gt;</a>
+                  <a id="btnEditImg" class="btnPostEdit">&lt;img&gt;</a>
+                  <a id="btnEditCredit" class="btnPostEdit">&lt;&#169;&gt;</a>
+                  <a id="btnEditMore"   class="btnPostEdit">[MORE]</a>
+                  <a id="deletebtn" style="color: red; font-weight: 800">Delete</a>
+                </div>
+
+                <div class="form-group">
+                  <textarea id="postBody" class="form-control" cols="72" rows="24">{{ post.body }}</textarea>
+                </div>
+
+      				</div>
+      			</fieldset>
+          </div>
+        </form>
+      </div>
+    
+      <div class="col-xs-offset-1 col-xs-6">
+        {% include 'preview.html' %}
+      </div>
+
+  </div>
+</section>    
+
+{% endblock %}
+

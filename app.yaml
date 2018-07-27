@@ -1,10 +1,24 @@
 application: ice-bloc-hdr
-version: alpha
-runtime: python
+version: gamma
+runtime: python27
 api_version: 1
+threadsafe: true
 
 builtins:
 - remote_api: on
+
+libraries:
+- name: django
+  version: "1.2"
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'settings'
+
+## updates:
+  ## Aug11, 07: amsr2 filename, https://gamma-dot-ice-bloc-hdr.appspot.com/
+  ## epsilon: Jul13, 18, gibs time range to 2000, intro arc-sentinel
+  ## gamma:   Jul18, 18: added compsite 3 days sentinel
+
 
 handlers:
 
@@ -12,6 +26,18 @@ handlers:
 - url: /favicon.ico
   static_files: static/favicon.ico
   upload: static/favicon.ico
+
+- url: /google2b12855243d6bbb0.html
+  static_files: static/google2b12855243d6bbb0.html
+  upload: static/google2b12855243d6bbb0.html
+
+- url: /apple-touch-icon\.png
+  static_files: static/apple-touch-icon.png
+  upload: static/apple-touch-icon.png
+
+- url: /apple-touch-icon-precomposed\.png
+  static_files: static/apple-touch-icon-precomposed.png
+  upload: static/apple-touch-icon-precomposed.png
 
 - url: /robots.txt
   static_files: static/robots.txt
@@ -21,30 +47,38 @@ handlers:
   static_files: static/google861a6aca749963ad.html
   upload: static/google861a6aca749963ad.html
 
-## STATIC
-- url: /static
-  static_dir: static
-  expiration: "1d"
+# ## MAPS
+# - url: /zooms
+#   static_dir: static/zooms
+#   expiration: "1m"
+
+## DATA
+- url: /data
+  static_dir: static/data
+  # expiration: "7d"
 
 ## IMAGES
 - url: /images
   static_dir: static/images
   expiration: "7d"
 
-## BUTTONS
-- url: /buttons
-  static_dir: static/images/buttons
-  expiration: "7d"
-
-## DATA
-- url: /data
-  static_dir: static/data
-  expiration: "1d"
-
-## MAPS
-- url: /maps
-  static_dir: static/maps
+## ARTICLES
+- url: /articles
+  static_dir: static/articles
   expiration: "1m"
+
+## SOURCE MAPS
+- url: /static/(.*\.map)
+  mime_type: text/plain
+  static_files: static/\1
+  upload: static/(.*\.map)
+
+## MARKDOWN
+- url: /static/(.*\.md)
+  mime_type: text/plain
+  static_files: static/\1
+  upload: static/(.*\.md)
+
 
 ## FONTS
 - url: /fonts
@@ -75,33 +109,32 @@ handlers:
   upload: static/fonts/(.*\.(svg|svgz))
   expiration: "7d"
 
-## EDGE CACHE
-- url: /remote-sensing/.*
-  script: edge-proxy.py
+
+## STATIC FINAL
+- url: /static
+  static_dir: static
+  expiration: "1d"
+
+## SIMPLE CACHE
+- url: /cache/.*
+  script: cache.app
+
+# ## EDGE CACHE
+# - url: /remote-sensing/.*
+#   script: edge-proxy.app
 
 ## ADMIN
-- url: /cron/.*
-  script: cron.py
-  login: admin
   
-- url: /admin/.*
-  script: $PYTHON_LIB/google/appengine/ext/admin
-  login: admin
-  
-- url: /remote_api
-  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
-  login: admin
-
 ## ALL OTHER
 - url: .*
-  script: main.py
+  script: main.app
 
 ## IGNORE
 skip_files: |
  ^(.*/)?(
  (#.*#)|
  (.*~)|
- (.*\.bat)|
+ (.*\.sh)|
  (.*\.xcf)|
  (.*\.rar)|
  (.*\.zip)|
@@ -109,6 +142,7 @@ skip_files: |
  (.*\.py[co])|
  (.*/RCS/.*)|
  (\..*)|
+ (js/compiler)|
  (dev/.*)|
  (static/debug/.*)|
  (static/stuff/.*)|

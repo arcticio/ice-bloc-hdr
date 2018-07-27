@@ -1,0 +1,60 @@
+{% block article %}
+
+<!-- TRENNER -->
+
+  <section class="trenner parallax-section" style="ackground-color: #ddd;">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Article</h2>
+        </div>
+      </div>
+    </div>    
+  </section>
+
+  {% if article %}
+
+  <section class="article">
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 ">
+          <h1 class="title" title="post title"><a href="/{{ article.permalink }}">{{ article.title }}</a></h1>
+        </div>
+
+      </div>
+
+      <div class="row">
+        
+        <div class="col-xs-12 col-sm-2 col-md-2">
+          <div class="row">
+            {% include 'meta.html' %}
+          </div>
+        </div>
+
+        <div class="col-xs-offset-1 col-xs-10  col-sm-offset-0 col-sm-8 col-md-8 article">
+          {% autoescape off %}
+              {{ article.html }}
+          {% endautoescape %}
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  {% else %}
+
+  <section class="article">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          Something missing here!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endif %}
+
+{% endblock %}

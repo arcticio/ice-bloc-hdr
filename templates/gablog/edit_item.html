@@ -1,0 +1,25 @@
+
+<tr>
+
+  <td class="item-counter" title="counter">{{ forloop.counter }}</td>
+<!--   <td class="item-links"   title="links">
+    <a href="/{{ article.permalink }}" title="Continue reading">A</a>
+    <a href="/post/edit/{{ article.key }}">E</a>
+  </td> -->
+  <td class="item-title"   title="title" colspan="6"><a href="/{{ article.permalink }}" title="Continue reading"> {{ article.title }} </a></td>
+
+
+</tr>
+<tr class="lastrow">
+
+  <td class="item-date"    title="pub">   {{ article.published.date|date:"y-m-d" }}</td>
+  <td class="item-date"    title="upd">   {{ article.updated.date|date:"y-m-d" }}</td>
+  <td class="item-type"    title="type">  {{ article.article_type }}</td>
+  <td class="item-format"  title="format">{{ article.format }}</td>
+  <td class="item-tags"    title="tags">  {% for tag in article.tags %}{{ tag|control_trunc:2 }}, {% endfor %}</td>
+
+  <td class="item-excerpt" title="excerpt">{% if article.excerpt %} {{ article.excerpt|control_trunc:10 }} {% endif %}</td>
+  <td class="item-html"    title="html">   <a href="/post/edit/{{ article.key }}"> {{ article.html|control_trunc:10 }}</a></td>
+
+</tr>        
+  

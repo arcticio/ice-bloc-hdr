@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>artic.io - Contact</title>
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type='text/css'>
+	<link rel="stylesheet" href='//fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href='//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css' type='text/css'>
+	<link rel="stylesheet" href="/static/css/style.css" type='text/css'>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+
+		body, html, #contact {background-color: transparent; padding: 0; margin: 0;}
+
+		::-webkit-input-placeholder {
+		   color: #666;
+		}
+
+		:-moz-placeholder { /* Firefox 18- */
+		   color: #666;  
+		}
+
+		::-moz-placeholder {  /* Firefox 19+ */
+		   color: #666;  
+		}
+
+		:-ms-input-placeholder {  
+		   color: #666;  
+		}
+
+		#info {
+			color: red;
+			display: none;
+			font-family: monospace;
+			font-size: 20px;
+			font-weight: 800;
+			width: 100%;
+			padding: 8px;
+			background-color: rgba(100, 100, 100, 0.8)
+		}
+
+	</style>
+
+
+
+</head>
+<body>
+
+	<section id="contact" class="">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+
+					{% block contact %}
+				
+					{% endblock %}
+				
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript">
+
+		var REFERER = "{{ referer }}";
+
+	    $.urlParam = function(name){
+	        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	        if (results==null){
+	           return null;
+	        }
+	        else{
+	           return decodeURI(results[1] || 0);
+	        }
+	    }
+
+	    // console.log("contact", location.href, $.urlParam('info'), "{{ referer }}" );
+	    
+	    if ($.urlParam('info') && $("#info").length ){
+
+	        $("#info").css({display: "block"});
+	        $("#info").text($.urlParam('info'));
+
+	    }
+
+
+	</script>
+
+</body>
+</html>

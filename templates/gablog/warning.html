@@ -1,0 +1,15 @@
+<!-- WARNING section -->
+
+<section id="warning" style="display: {% if warning %} block {% else %} none {% endif %}">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<span id="warning-text">{{ warning }}</span>
+				<p style="color: black; border: 2px solid white; cursor: pointer;" onclick="warning();">Got it</p>
+			</div>
+		</div>
+	</div>		
+</section>
+
+
+	
