@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<WMS_Capabilities xmlns="http://www.opengis.net/wms" xmlns:inspire_common="http://inspire.ec.europa.eu/schemas/common/1.0" xmlns:inspire_vs="http://inspire.ec.europa.eu/schemas/inspire_vs/1.0" xmlns:sld="http://www.opengis.net/sld" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.3.0" xsi:schemaLocation="http://inspire.ec.europa.eu/schemas/inspire_vs/1.0 http://inspire.ec.europa.eu/schemas/inspire_vs/1.0/inspire_vs.xsd">
+  <Service>
+    <Name>WMS</Name>
+    <Title>EO_Browser-Sentinel-5p</Title>
+    <Abstract><![CDATA[The Copernicus project’s Sentinel satellites are revolutionizing earth observation (EO). Its free, full and open access to data with very short revisit times, high spatial resolution, and good spectral resolution are crucial for many applications. The portfolio of possible products is vast - use-cases of such a service range from plant health monitoring, land and water body change, flood monitoring, disaster mapping and more.However the current gap between Sentinel source data and its end-users is large:•   ESA’s complex Scientific Data Hub•   raster files are compressed with JPEG2000 (13 raster filesfor each product, one per spectral band)•   terabytes of data per week•   additional processing requirementsTackling the data in an old-fashioned way -  offering individual derivative products simply does not work anymore, the associated time and costs are large and defeat most of the major benefits of the Sentinel project.Our approach combines cloud-based GIS technologies, parallel processing and fully automated procedures. To support the fast developing EO field we provide tools directly to end-users. on-the-fly processing and visualization make it possible to build new products (e.g. vegetation indices and similar) in a matter of minutes.]]></Abstract>
+    <OnlineResource xlink:href="http://www.sentinel-hub.com"/>
+    <ContactInformation>
+      <ContactPersonPrimary>
+        <ContactPerson>Sentinel-hub team</ContactPerson>
+        <ContactOrganization>Sinergise d.o.o.</ContactOrganization>
+      </ContactPersonPrimary>
+      <ContactPosition>resourceProvider</ContactPosition>
+      <ContactAddress>
+        <AddressType>postal</AddressType>
+        <Address>Cvetkova ulica 29</Address>
+        <City>Ljubljana</City>
+        <StateOrProvince/>
+        <PostCode>1000</PostCode>
+        <Country>Slovenia</Country>
+      </ContactAddress>
+      <ContactVoiceTelephone>+386 1 320-61-50</ContactVoiceTelephone>
+      <ContactFacsimileTelephone>+386 1 620-22-28</ContactFacsimileTelephone>
+      <ContactElectronicMailAddress>info@sinergise.com</ContactElectronicMailAddress>
+    </ContactInformation>
+    <Fees>http://www.sentinel-hub.com</Fees>
+    <AccessConstraints>otherRestrictions</AccessConstraints>
+  </Service>
+  <Capability>
+    <Request>
+      <GetCapabilities>
+        <Format>application/xml</Format>
+        <Format>text/xml</Format>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetCapabilities>
+      <GetMap>
+        <Format>image/png</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/jpg</Format>
+        <Format>image/tiff</Format>
+        <Format>image/tiff;depth=8</Format>
+        <Format>image/tiff;depth=16</Format>
+        <Format>image/tiff;depth=32f</Format>
+        <Format>image/jp2</Format>
+        <Format>image/jpx</Format>
+        <Format>image/raw</Format>
+        <Format>image/raw;depth=8</Format>
+        <Format>image/raw;depth=16</Format>
+        <Format>image/raw;depth=32f</Format>
+        <Format>application/vnd.google-earth.kmz+xml</Format>
+        <Format>application/vnd.google-earth.kmz+xml;image_type=image/jpeg</Format>
+        <Format>application/vnd.google-earth.kmz+xml;image_type=image/png</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetMap>
+      <GetFeatureInfo>
+        <Format>application/xml</Format>
+        <Format>text/xml</Format>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <Format>application/vnd.ogc.gml</Format>
+        <Format>text/html</Format>
+        <Format>application/json</Format>
+        <Format>text/javascript</Format>
+        <Format>text/plain</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetFeatureInfo>
+    </Request>
+    <Exception>
+      <Format>XML</Format>
+      <Format>INIMAGE</Format>
+      <Format>BLANK</Format>
+    </Exception>
+    <inspire_vs:ExtendedCapabilities>
+      <inspire_common:ResourceLocator>
+        <inspire_common:URL>http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?SERVICE=WMS&amp;REQUEST=GetCapabilities</inspire_common:URL>
+        <inspire_common:MediaType>text/xml</inspire_common:MediaType>
+      </inspire_common:ResourceLocator>
+      <inspire_common:ResourceType>service</inspire_common:ResourceType>
+      <inspire_common:TemporalReference>
+        <inspire_common:DateOfPublication>2015-11-30</inspire_common:DateOfPublication>
+      </inspire_common:TemporalReference>
+      <inspire_common:Conformity>
+        <inspire_common:Specification>
+          <inspire_common:Title>COMMISSION REGULATION (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services</inspire_common:Title>
+          <inspire_common:DateOfPublication>2010-12-08</inspire_common:DateOfPublication>
+          <inspire_common:URI>OJ:L:2010:323:0011:0102:EN:PDF</inspire_common:URI>
+          <inspire_common:ResourceLocator>
+            <inspire_common:URL>https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2010:323:0011:0102:EN:PDF</inspire_common:URL>
+            <inspire_common:MediaType>application/pdf</inspire_common:MediaType>
+          </inspire_common:ResourceLocator>
+        </inspire_common:Specification>
+        <inspire_common:Degree>notEvaluated</inspire_common:Degree>
+      </inspire_common:Conformity>
+      <inspire_common:MetadataPointOfContact>
+        <inspire_common:OrganisationName>Sinergise d.o.o.</inspire_common:OrganisationName>
+        <inspire_common:EmailAddress>info@sentinel-hub.com</inspire_common:EmailAddress>
+      </inspire_common:MetadataPointOfContact>
+      <inspire_common:MetadataDate>2015-11-30</inspire_common:MetadataDate>
+      <inspire_common:SpatialDataServiceType>view</inspire_common:SpatialDataServiceType>
+      <inspire_common:MandatoryKeyword>
+        <inspire_common:KeywordValue>infoMapAccessService</inspire_common:KeywordValue>
+      </inspire_common:MandatoryKeyword>
+      <inspire_common:SupportedLanguages>
+        <inspire_common:DefaultLanguage>
+          <inspire_common:Language>eng</inspire_common:Language>
+        </inspire_common:DefaultLanguage>
+      </inspire_common:SupportedLanguages>
+      <inspire_common:ResponseLanguage>
+        <inspire_common:Language>eng</inspire_common:Language>
+      </inspire_common:ResponseLanguage>
+    </inspire_vs:ExtendedCapabilities>
+    <Layer queryable="1">
+      <Title>Sentinel Hub WMS</Title>
+      <CRS>EPSG:3857</CRS>
+      <CRS>CRS:84</CRS>
+      <CRS>EPSG:4326</CRS>
+      <CRS>EPSG:27700</CRS>
+      <CRS>EPSG:2154</CRS>
+      <CRS>EPSG:3912</CRS>
+      <CRS>EPSG:3794</CRS>
+      <CRS>EPSG:5514</CRS>
+      <CRS>EPSG:3765</CRS>
+      <CRS>SR-ORG:98739</CRS>
+      <CRS>EPSG:28992</CRS>
+      <CRS>EPSG:2180</CRS>
+      <CRS>EPSG:3003</CRS>
+      <CRS>EPSG:3004</CRS>
+      <CRS>EPSG:3844</CRS>
+      <CRS>EPSG:3346</CRS>
+      <CRS>EPSG:31287</CRS>
+      <CRS>EPSG:3416</CRS>
+      <CRS>EPSG:2193</CRS>
+      <CRS>EPSG:3995</CRS>
+      <CRS>EPSG:3031</CRS>
+      <EX_GeographicBoundingBox>
+        <westBoundLongitude>-180</westBoundLongitude>
+        <eastBoundLongitude>180</eastBoundLongitude>
+        <southBoundLatitude>-85.051129</southBoundLatitude>
+        <northBoundLatitude>85.051129</northBoundLatitude>
+      </EX_GeographicBoundingBox>
+      <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789"/>
+      <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+      <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+      <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+      <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+      <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+      <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+      <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+      <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+      <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+      <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+      <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+      <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+      <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+      <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+      <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+      <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+      <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+      <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+      <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+      <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+      <Dimension current="1" default="2018-07-12" name="TIME" unitSymbol="" units="ISO8601">1984-01-01/2018-07-12/P1D</Dimension>
+      <Dimension default="100" name="MAXCC" unitSymbol="%" units="Percent">0/100/1</Dimension>
+      <Dimension default="none" name="CLOUDCORRECTION" unitSymbol="" units="Enumeration">none,replace</Dimension>
+      <Dimension default="mostRecent" name="PRIORITY" unitSymbol="" units="Enumeration">mostRecent,leastRecent,leastCC</Dimension>
+      <Dimension default="0" name="PREVIEW" unitSymbol="" units="Enumeration">0,1,2,3</Dimension>
+      <Dimension default="90" name="QUALITY" unitSymbol="%" units="Percent">0/100/1</Dimension>
+      <Dimension default="true" name="WARNINGS" unitSymbol="" units="Enumeration">false,true</Dimension>
+      <Layer queryable="1">
+        <Name>AER_AI</Name>
+        <Title>Sentinel 5p L2 - AER_AI</Title>
+        <Abstract>UV Aerosol Index 340/380</Abstract>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789" resx="3500" resy="3500"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Dimension default="20" name="MAXCC" unitSymbol="%" units="Percent">0/100/1</Dimension>
+        <Dimension default="" name="PRIORITY" unitSymbol="" units="Enumeration">mostRecent,leastRecent,leastCC</Dimension>
+        <Style>
+          <Name>GRAYSCALE</Name>
+          <Title>Grayscale</Title>
+          <Abstract>Linear grayscale gradient, mapped from the input range [-1.0, 5.0]</Abstract>
+        </Style>
+        <Style>
+          <Name>GRAYSCALE_ADVANCED</Name>
+          <Title>Grayscale advanced</Title>
+          <Abstract>Customizable grayscale curve</Abstract>
+        </Style>
+        <Style>
+          <Name>BLUE_RED</Name>
+          <Title>Blue/Red</Title>
+          <Abstract>Rainbow, from blue to red, through green and yellow, mapped from the input range [-1.0, 5.0]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=AER_AI&amp;STYLE=BLUE_RED" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>GREEN_WHITE</Name>
+          <Title>Green/White Linear</Title>
+          <Abstract>Green to white linear scale, mapped from the input range [-1.0, 5.0]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=AER_AI&amp;STYLE=GREEN_WHITE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>RED_TEMPERATURE</Name>
+          <Title>Red Temperature</Title>
+          <Abstract>Red to white linear scale, representing the black-body color depending on the temperature, mapped from the input range [-1.0, 5.0]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=AER_AI&amp;STYLE=RED_TEMPERATURE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>CH4</Name>
+        <Title>Sentinel 5p L2 - CH4</Title>
+        <Abstract>Retrieved column-averaged dry-air mole fraction of atmospheric methane</Abstract>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789" resx="3500" resy="3500"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Dimension default="20" name="MAXCC" unitSymbol="%" units="Percent">0/100/1</Dimension>
+        <Dimension default="" name="PRIORITY" unitSymbol="" units="Enumeration">mostRecent,leastRecent,leastCC</Dimension>
+        <Style>
+          <Name>GRAYSCALE</Name>
+          <Title>Grayscale</Title>
+          <Abstract>Linear grayscale gradient, mapped from the input range [0.0, 3000.0]</Abstract>
+        </Style>
+        <Style>
+          <Name>GRAYSCALE_ADVANCED</Name>
+          <Title>Grayscale advanced</Title>
+          <Abstract>Customizable grayscale curve</Abstract>
+        </Style>
+        <Style>
+          <Name>BLUE_RED</Name>
+          <Title>Blue/Red</Title>
+          <Abstract>Rainbow, from blue to red, through green and yellow, mapped from the input range [0.0, 3000.0]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=CH4&amp;STYLE=BLUE_RED" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>GREEN_WHITE</Name>
+          <Title>Green/White Linear</Title>
+          <Abstract>Green to white linear scale, mapped from the input range [0.0, 3000.0]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=CH4&amp;STYLE=GREEN_WHITE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>RED_TEMPERATURE</Name>
+          <Title>Red Temperature</Title>
+          <Abstract>Red to white linear scale, representing the black-body color depending on the temperature, mapped from the input range [0.0, 3000.0]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=CH4&amp;STYLE=RED_TEMPERATURE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>CO</Name>
+        <Title>Sentinel 5p L2 - CO</Title>
+        <Abstract>Carbon Monoxide total column</Abstract>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789" resx="3500" resy="3500"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Dimension default="20" name="MAXCC" unitSymbol="%" units="Percent">0/100/1</Dimension>
+        <Dimension default="" name="PRIORITY" unitSymbol="" units="Enumeration">mostRecent,leastRecent,leastCC</Dimension>
+        <Style>
+          <Name>GRAYSCALE</Name>
+          <Title>Grayscale</Title>
+          <Abstract>Linear grayscale gradient, mapped from the input range [0.0, 0.1]</Abstract>
+        </Style>
+        <Style>
+          <Name>GRAYSCALE_ADVANCED</Name>
+          <Title>Grayscale advanced</Title>
+          <Abstract>Customizable grayscale curve</Abstract>
+        </Style>
+        <Style>
+          <Name>BLUE_RED</Name>
+          <Title>Blue/Red</Title>
+          <Abstract>Rainbow, from blue to red, through green and yellow, mapped from the input range [0.0, 0.1]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=CO&amp;STYLE=BLUE_RED" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>GREEN_WHITE</Name>
+          <Title>Green/White Linear</Title>
+          <Abstract>Green to white linear scale, mapped from the input range [0.0, 0.1]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=CO&amp;STYLE=GREEN_WHITE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>RED_TEMPERATURE</Name>
+          <Title>Red Temperature</Title>
+          <Abstract>Red to white linear scale, representing the black-body color depending on the temperature, mapped from the input range [0.0, 0.1]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=CO&amp;STYLE=RED_TEMPERATURE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>NO2</Name>
+        <Title>Sentinel 5p L2 - NO2</Title>
+        <Abstract>Nitrogen Dioxide tropospheric column</Abstract>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789" resx="3500" resy="3500"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Dimension default="20" name="MAXCC" unitSymbol="%" units="Percent">0/100/1</Dimension>
+        <Dimension default="" name="PRIORITY" unitSymbol="" units="Enumeration">mostRecent,leastRecent,leastCC</Dimension>
+        <Style>
+          <Name>GRAYSCALE</Name>
+          <Title>Grayscale</Title>
+          <Abstract>Linear grayscale gradient, mapped from the input range [0.0, 1.0E-4]</Abstract>
+        </Style>
+        <Style>
+          <Name>GRAYSCALE_ADVANCED</Name>
+          <Title>Grayscale advanced</Title>
+          <Abstract>Customizable grayscale curve</Abstract>
+        </Style>
+        <Style>
+          <Name>BLUE_RED</Name>
+          <Title>Blue/Red</Title>
+          <Abstract>Rainbow, from blue to red, through green and yellow, mapped from the input range [0.0, 1.0E-4]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=NO2&amp;STYLE=BLUE_RED" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>GREEN_WHITE</Name>
+          <Title>Green/White Linear</Title>
+          <Abstract>Green to white linear scale, mapped from the input range [0.0, 1.0E-4]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=NO2&amp;STYLE=GREEN_WHITE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>RED_TEMPERATURE</Name>
+          <Title>Red Temperature</Title>
+          <Abstract>Red to white linear scale, representing the black-body color depending on the temperature, mapped from the input range [0.0, 1.0E-4]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=NO2&amp;STYLE=RED_TEMPERATURE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>O3</Name>
+        <Title>Sentinel 5p L2 - O3</Title>
+        <Abstract>Ozone total column</Abstract>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789" resx="3500" resy="3500"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Dimension default="20" name="MAXCC" unitSymbol="%" units="Percent">0/100/1</Dimension>
+        <Dimension default="" name="PRIORITY" unitSymbol="" units="Enumeration">mostRecent,leastRecent,leastCC</Dimension>
+        <Style>
+          <Name>GRAYSCALE</Name>
+          <Title>Grayscale</Title>
+          <Abstract>Linear grayscale gradient, mapped from the input range [0.0, 0.36]</Abstract>
+        </Style>
+        <Style>
+          <Name>GRAYSCALE_ADVANCED</Name>
+          <Title>Grayscale advanced</Title>
+          <Abstract>Customizable grayscale curve</Abstract>
+        </Style>
+        <Style>
+          <Name>BLUE_RED</Name>
+          <Title>Blue/Red</Title>
+          <Abstract>Rainbow, from blue to red, through green and yellow, mapped from the input range [0.0, 0.36]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=O3&amp;STYLE=BLUE_RED" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>GREEN_WHITE</Name>
+          <Title>Green/White Linear</Title>
+          <Abstract>Green to white linear scale, mapped from the input range [0.0, 0.36]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=O3&amp;STYLE=GREEN_WHITE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>RED_TEMPERATURE</Name>
+          <Title>Red Temperature</Title>
+          <Abstract>Red to white linear scale, representing the black-body color depending on the temperature, mapped from the input range [0.0, 0.36]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=O3&amp;STYLE=RED_TEMPERATURE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>SO2</Name>
+        <Title>Sentinel 5p L2 - SO2</Title>
+        <Abstract>Sulfur Dioxide total column</Abstract>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789" resx="3500" resy="3500"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Dimension default="20" name="MAXCC" unitSymbol="%" units="Percent">0/100/1</Dimension>
+        <Dimension default="" name="PRIORITY" unitSymbol="" units="Enumeration">mostRecent,leastRecent,leastCC</Dimension>
+        <Style>
+          <Name>GRAYSCALE</Name>
+          <Title>Grayscale</Title>
+          <Abstract>Linear grayscale gradient, mapped from the input range [0.0, 0.1]</Abstract>
+        </Style>
+        <Style>
+          <Name>GRAYSCALE_ADVANCED</Name>
+          <Title>Grayscale advanced</Title>
+          <Abstract>Customizable grayscale curve</Abstract>
+        </Style>
+        <Style>
+          <Name>BLUE_RED</Name>
+          <Title>Blue/Red</Title>
+          <Abstract>Rainbow, from blue to red, through green and yellow, mapped from the input range [0.0, 0.1]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=SO2&amp;STYLE=BLUE_RED" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>GREEN_WHITE</Name>
+          <Title>Green/White Linear</Title>
+          <Abstract>Green to white linear scale, mapped from the input range [0.0, 0.1]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=SO2&amp;STYLE=GREEN_WHITE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>RED_TEMPERATURE</Name>
+          <Title>Red Temperature</Title>
+          <Abstract>Red to white linear scale, representing the black-body color depending on the temperature, mapped from the input range [0.0, 0.1]</Abstract>
+          <LegendURL height="166" width="100">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://services.eocloud.sentinel-hub.com/v1/wms/11f6ec68-179b-43b8-8996-70305cee0942?REQUEST=GetLegend&amp;LAYER=SO2&amp;STYLE=RED_TEMPERATURE" xlink:type="simple"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>S5p_L2.FILL</Name>
+        <Title>Sentinel 5p L2 - Tile fills</Title>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Style>
+          <Name>COLORED</Name>
+          <Title>Each tile colored differently</Title>
+        </Style>
+        <Style>
+          <Name>RED</Name>
+          <Title>Solid red</Title>
+        </Style>
+        <Style>
+          <Name>GREEN</Name>
+          <Title>Solid green</Title>
+        </Style>
+        <Style>
+          <Name>BLUE</Name>
+          <Title>Solid blue</Title>
+        </Style>
+        <Style>
+          <Name>WHITE</Name>
+          <Title>Solid white</Title>
+        </Style>
+        <Style>
+          <Name>BLACK</Name>
+          <Title>Solid black</Title>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>S5p_L2.OUTLINE</Name>
+        <Title>Sentinel 5p L2 - Tile outlines</Title>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Style>
+          <Name>COLORED</Name>
+          <Title>Each tile colored differently</Title>
+        </Style>
+        <Style>
+          <Name>RED</Name>
+          <Title>Solid red</Title>
+        </Style>
+        <Style>
+          <Name>GREEN</Name>
+          <Title>Solid green</Title>
+        </Style>
+        <Style>
+          <Name>BLUE</Name>
+          <Title>Solid blue</Title>
+        </Style>
+        <Style>
+          <Name>WHITE</Name>
+          <Title>Solid white</Title>
+        </Style>
+        <Style>
+          <Name>BLACK</Name>
+          <Title>Solid black</Title>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>S5p_L2.DATE</Name>
+        <Title>Sentinel 5p L2 - Tile date texts</Title>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Style>
+          <Name>COLORED</Name>
+          <Title>Each tile colored differently</Title>
+        </Style>
+        <Style>
+          <Name>RED</Name>
+          <Title>Solid red</Title>
+        </Style>
+        <Style>
+          <Name>GREEN</Name>
+          <Title>Solid green</Title>
+        </Style>
+        <Style>
+          <Name>BLUE</Name>
+          <Title>Solid blue</Title>
+        </Style>
+        <Style>
+          <Name>WHITE</Name>
+          <Title>Solid white</Title>
+        </Style>
+        <Style>
+          <Name>BLACK</Name>
+          <Title>Solid black</Title>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>S5p_L2.TIME</Name>
+        <Title>Sentinel 5p L2 - Tile time texts</Title>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Style>
+          <Name>COLORED</Name>
+          <Title>Each tile colored differently</Title>
+        </Style>
+        <Style>
+          <Name>RED</Name>
+          <Title>Solid red</Title>
+        </Style>
+        <Style>
+          <Name>GREEN</Name>
+          <Title>Solid green</Title>
+        </Style>
+        <Style>
+          <Name>BLUE</Name>
+          <Title>Solid blue</Title>
+        </Style>
+        <Style>
+          <Name>WHITE</Name>
+          <Title>Solid white</Title>
+        </Style>
+        <Style>
+          <Name>BLACK</Name>
+          <Title>Solid black</Title>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>S5p_L2.ID</Name>
+        <Title>Sentinel 5p L2 - Tile ID texts</Title>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180</westBoundLongitude>
+          <eastBoundLongitude>180</eastBoundLongitude>
+          <southBoundLatitude>-85.051129</southBoundLatitude>
+          <northBoundLatitude>85.051129</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3857" maxx="20037508.342789" maxy="20037508.342789" minx="-20037508.342789" miny="-20037508.342789"/>
+        <BoundingBox CRS="CRS:84" maxx="180" maxy="85.051129" minx="-180" miny="-85.051129"/>
+        <BoundingBox CRS="EPSG:4326" maxx="85.051129" maxy="180" minx="-85.051129" miny="-180"/>
+        <BoundingBox CRS="EPSG:27700" maxx="700000" maxy="1300000" minx="0" miny="0"/>
+        <BoundingBox CRS="EPSG:2154" maxx="1313632.3628" maxy="7230727.3772" minx="-357823.2365" miny="6037008.6939"/>
+        <BoundingBox CRS="EPSG:3912" maxx="650000" maxy="200000" minx="350000" miny="105.814993"/>
+        <BoundingBox CRS="EPSG:3794" maxx="650000" maxy="200000" minx="350000" miny="106.024083"/>
+        <BoundingBox CRS="EPSG:5514" maxx="-159350" maxy="-911035" minx="-951510" miny="-1353306"/>
+        <BoundingBox CRS="EPSG:3765" maxx="800000" maxy="5200000" minx="200000" miny="4650000"/>
+        <BoundingBox CRS="SR-ORG:98739" maxx="650000" maxy="1250000" minx="150000" miny="510000"/>
+        <BoundingBox CRS="EPSG:28992" maxx="284310" maxy="636990" minx="630" miny="306570"/>
+        <BoundingBox CRS="EPSG:2180" maxx="876500" maxy="908500" minx="144600" miny="125800"/>
+        <BoundingBox CRS="EPSG:3003" maxx="1868700" maxy="5214300" minx="1226000" miny="4042800"/>
+        <BoundingBox CRS="EPSG:3004" maxx="2885300" maxy="5224200" minx="2145300" miny="3846400"/>
+        <BoundingBox CRS="EPSG:3844" maxx="771870" maxy="1018810" minx="215530" miny="116260"/>
+        <BoundingBox CRS="EPSG:3346" maxx="6268600" maxy="685400" minx="5972400" miny="172700"/>
+        <BoundingBox CRS="EPSG:31287" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:3416" maxx="575906" maxy="694886" minx="277747" miny="107674"/>
+        <BoundingBox CRS="EPSG:2193" maxx="6227000" maxy="2120000" minx="4736000" miny="987000"/>
+        <BoundingBox CRS="EPSG:3995" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <BoundingBox CRS="EPSG:3031" maxx="3333135" maxy="3333135" minx="-3333135" miny="-3333135"/>
+        <Style>
+          <Name>COLORED</Name>
+          <Title>Each tile colored differently</Title>
+        </Style>
+        <Style>
+          <Name>RED</Name>
+          <Title>Solid red</Title>
+        </Style>
+        <Style>
+          <Name>GREEN</Name>
+          <Title>Solid green</Title>
+        </Style>
+        <Style>
+          <Name>BLUE</Name>
+          <Title>Solid blue</Title>
+        </Style>
+        <Style>
+          <Name>WHITE</Name>
+          <Title>Solid white</Title>
+        </Style>
+        <Style>
+          <Name>BLACK</Name>
+          <Title>Solid black</Title>
+        </Style>
+      </Layer>
+    </Layer>
+  </Capability>
+</WMS_Capabilities>
