@@ -68,6 +68,7 @@ class ContactHandler(restful.Controller):
 
     # Don't use cache since we want to get current time for each post.
     view.ViewPage(cache_time=0).render(self, {
+
       'email':    user.email() if user else 'Required',
       'nickname': user.nickname() if user else '',
       'token':    RANDOM_TOKEN,
@@ -75,9 +76,12 @@ class ContactHandler(restful.Controller):
       "title":    config.APP["title"] + " - Contact &amp; Feedback",
       'warning':  self.request.get('info'),
       'referer':  getReferer(self.request)
+      
      })
 
+
   def post(self):
+
     from google.appengine.api import mail
 
     ## validation

@@ -599,6 +599,26 @@ var Simulator = (function () {
             });
 
         },
+        removeFutureDates: function(dateRange){
+
+            function filterPast (iso) {
+                return iso <= nowiso;
+            }
+
+            var 
+                now = new Date(),
+                pad = function (item) { return ("00" + item).slice(-2); },
+                nowiso = [
+                    now.getUTCFullYear(),
+                    pad(now.getUTCMonth() +1),
+                    pad(now.getUTCDate())
+                ].join('-')
+            ;
+
+
+            return dateRange.filter(filterPast);
+
+        },
         loadRange: function(callback){
 
             function progessBlob (e) {
@@ -623,8 +643,10 @@ var Simulator = (function () {
                 return iso.split("-")[0] + "/" + iso + ".sim" ;
             }
 
-            var dateRange = self.selectedRange(),
-                dates = self.makeDayRange(dateRange[0], dateRange[1]),
+            var 
+                dateRange = self.selectedRange(),
+                dates     = self.makeDayRange(dateRange[0], dateRange[1]),
+                pastDates = self.removeFutureDates(dates),
                 currLoad  = 0, 
                 currImage = 0, 
                 fullImage = dates.length, 
@@ -635,14 +657,17 @@ var Simulator = (function () {
                             callback(null, blobs);
                         });
                     };
-                });
+                })
+            ;
+            
+            // debugger;
 
             // full reset
             variables = {};
             doAnimate = false;
             ctx.clearRect(0, 0, cav.width, cav.height);
 
-            SIM.Blender.loadRange(dates, progessImage, function () {
+            SIM.Blender.loadRange(pastDates, progessImage, function () {
                 ctx.clearRect(0, 0, cav.width, cav.height);
                 async.parallel(tasks, callback);
             });

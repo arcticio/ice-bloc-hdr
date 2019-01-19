@@ -11,7 +11,8 @@
 
 set -e
 
-pathRoot="/home/noiv/Octets/Projects/arctic.io/ice-bloc-hdr-gamma"
+pathRoot="/home/noiv/Octets/Projects/arctic.io/ice-bloc-hdr"
+
 pathScripts="${pathRoot}/static/js"
 pathSim="${pathRoot}/static/js/simulator"
 pathExp="${pathRoot}/static/js/explorer"
@@ -20,7 +21,7 @@ compiler="${pathRoot}/static/js/compiler/compiler.jar"
 
 cd $pathRoot
 echo 
-echo "-- Start - gamma --"
+echo "-- Start Packing --"
 echo 
 
 

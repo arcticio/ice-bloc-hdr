@@ -7,7 +7,8 @@
 
   var 
     wow,
-    Sections;
+    Sections
+  ;
 
 
 // PRELOADER

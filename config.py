@@ -17,8 +17,8 @@ DEBUG = os.environ['APPLICATION_ID'].startswith('dev')
 # This dict contains application-wide configuration values
 APP = {
 	"name": "arctic.io",
-	# "version": "0.3",
 	"version": VERSION,
+	# "version": "HUHUH",
 	"description": "Look, it's melting",
 	"title": "arctic.io",
 	"author": "Torsten Becker",

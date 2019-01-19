@@ -5,9 +5,10 @@
 </head>
 <body>
 
-    <section class="preloader" style="background: url('/static/loading.320.gif') 50% 50% no-repeat fixed; background-color: white" 
+    <section 
+        class="preloader" 
+        style="background: url('/static/loading.320.gif') 50% 50% no-repeat fixed; background-color: white" 
         onclick="this.style.display='none'">
-        <!-- <div class="sk-spinner sk-spinner-pulse"></div> -->
     </section>
 
 <!-- {{ sections }} -->
@@ -19,9 +20,9 @@
     {% endif %}
 
     {% block home%}
-    {% if 'Home' in sections %}
-        {% include 'home.html' %}
-    {% endif %}
+        {% if 'Home' in sections %}
+            {% include 'home.html' %}
+        {% endif %}
     {% endblock %}
 
 <!-- EDITOR -->
@@ -37,17 +38,17 @@
 <!-- ARTICLE -->
 
     {% block article %}
-    {% if 'Article' in sections %}
-        {% include 'article.html' %}
-    {% endif %}
+        {% if 'Article' in sections %}
+            {% include 'article.html' %}
+        {% endif %}
     {% endblock %}
 
 <!-- BLOG -->
 
     {% block blog %}
-    {% if 'Blog' in sections %}
-        {% include 'blog/blog.html' %}
-    {% endif %}
+        {% if 'Blog' in sections %}
+            {% include 'blog/blog.html' %}
+        {% endif %}
     {% endblock %}
 
 

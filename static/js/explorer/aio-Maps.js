@@ -570,7 +570,7 @@ var MAPS = (function () {
         return [Crs["3413"](zoom), layMask.getTL("arc-data", zoom, fnDate)];
       }
 
-      DEBUG && console.log("");  
+      // DEBUG && console.log("");  
       DEBUG && console.log("Stat0", curLay.key, ">", newKey, curLay.epsg, ">", newLay.epsg);
 
       if (curLay.key === newKey && !forceSilent) { 
@@ -595,20 +595,29 @@ var MAPS = (function () {
 
         // console.log("--Stat0b.before", side, status.lay1, status.lay2);
         // replace base map in status
-        curLayers.splice(0, 1);
-        curLayers.unshift(newLay.index);
+        // curLayers.splice(0, 1);
+        // curLayers.unshift(newLay.index);
+        curLayers[0] = newLay.index;
 
         // if (map === mapR.map) {mapR.ctrls.layers.updateActiveLayer(newKey);}
 
         // remove unsupported overlays
         curLayers.slice(1).forEach(function(idx){
+
           var key = Layers.byIndex(idx).key;
-          if (newLay.overlays.indexOf(key) === -1){
+
+          if (H.contains(newLay.overlays, key)) {
             self.changeOverlay(curMap, key, false, true);
             self.toggleOverlay(curLayers, key);
-          } else {
-            mapR.ctrls.layers._overlays[key] = true;            
+
+          } else {            
+            mapR.ctrls.layers._overlays[key] = true;   
+                     
           }
+          
+          // if (newLay.overlays.indexOf(key) === -1){
+          // } else {
+          // }
         });
 
         if (isSplitScreen){

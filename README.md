@@ -1,6 +1,6 @@
 # ice-bloc-hdr
 
-## Full re-write happening...
+## Incremental full re-write happening...
 
 ### To-Do
 
@@ -8,4 +8,5 @@
 	* CRUD with central Config
 	* Better Gallery
 		* Snap-Ins
+		* Clever Menu
 		* Integrated Explorer & Simulation & Maps

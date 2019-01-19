@@ -1,5 +1,5 @@
 application: ice-bloc-hdr
-version: gamma
+version: delta
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -18,7 +18,8 @@ env_variables:
   ## Aug11, 07: amsr2 filename, https://gamma-dot-ice-bloc-hdr.appspot.com/
   ## epsilon: Jul13, 18, gibs time range to 2000, intro arc-sentinel
   ## gamma:   Jul18, 18: added compsite 3 days sentinel
-
+  ## beta     Jul30  18: Fixes, overlay 4326
+  ## delta    Oct07  18: prepare https
 
 handlers:
 

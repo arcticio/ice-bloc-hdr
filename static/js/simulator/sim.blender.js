@@ -43,48 +43,53 @@ SIM.Blender = (function () {
             var doe, img, url = self.makeUrl(iso);
 
             // console.log("loadImage", url);
+            // debugger;
 
-            $.ajax({type: "HEAD", async: true, url: url
+            $.ajax({type: "HEAD", async: true, url: url, crossDomain: true, headers: {
+                    // "Origin": location.protocol + "//" + location.host
+                    }
+                })
+                .done(function(message, text, xhr){
 
-            }).done(function(message, text, xhr){
+                    // console.log("done", xhr, text, message);
 
-                // console.log("done", xhr, text, message);
+                    var mime = xhr.getResponseHeader("Content-Type");
 
-                var mime = xhr.getResponseHeader("Content-Type");
+                    if ( mime === "image/png" ){
 
-                if ( mime === "image/png" ){
+                        img = new Image();
 
-                    img = new Image();
+                        img.crossOrigin = "anonymous";
 
-                    img.crossOrigin = "anonymous";
+                        img.onload = function () {
+                            doe = H.iso2doe(iso);
+                            images[doe] = img;
+                            onfinish();
+                        };
+                        img.onerror = function () {
+                            doe = H.iso2doe(iso);
+                            console.log("SIM.Blender.onerror:", iso);
+                            onfinish();
+                        };
+                        img.src = url;
 
-                    img.onload = function () {
-                        doe = H.iso2doe(iso);
-                        images[doe] = img;
+                    } else {
+
+                        // console.log( "loadImage.fail", mime);
+
                         onfinish();
-                    };
-                    img.onerror = function () {
-                        doe = H.iso2doe(iso);
-                        console.log("SIM.Blender.onerror:", iso);
-                        onfinish();
-                    };
-                    img.src = url;
+                    }
 
-                } else {
 
-                    // console.log( "loadImage.fail", mime);
+                })
+                .fail(function ( xhr, text, error) {
+
+                    console.log( "loadImage.fail", xhr, text, error);
 
                     onfinish();
-                }
 
-
-            }).fail(function ( xhr, text, error) {
-
-                console.log( "loadImage.fail", xhr, text, error);
-
-                onfinish();
-
-            });
+                })
+            ;
         
 
         }, loadRange: function (isoRange, progress, onfinish) {
@@ -93,8 +98,8 @@ SIM.Blender = (function () {
 
             images = {};
 
-            isoRange.forEach(function (url) {
-                self.loadImage(url, function () {
+            isoRange.forEach(function (iso) {
+                self.loadImage(iso, function () {
                     loaded += 1;
                     progress(loaded);
                     if (loaded === isoRange.length){

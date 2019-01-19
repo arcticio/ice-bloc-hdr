@@ -222,6 +222,7 @@ Layers = {
 
     },
 
+
 ////////////// M O S A   ///////////////////////////////////////////////////////
 
     // {'arc-false-test' :    { enabled: false, index: 13, type: "base",  order: 0,
@@ -636,7 +637,7 @@ Layers = {
               transparent: true,
               version: "1.3.1",
               attribution: '<a href="https://www.sentinel-hub.com/">Sentinel-Hub</a>',
-              srs: "EPSG:3995",
+              srs: "EPSG:3995", 
               tileSize: 512,
               noWrap: true,
               continuousWorld: false,
@@ -879,6 +880,15 @@ Layers = {
           'Aurora Peak':                {coords: [-67.38333,  144.2],     lvl: 3, style: "-green"},
           'Pine Island Glacier':        {coords: [-75.00,    -101.00],    lvl: 3, style: "-magenta"},
           'South Pole':                 {coords: [-90      ,    0      ], lvl: 3, style: "-orange"}
+    }}},
+
+    {'labels-antarctic-icebergs':      { enabled: false, index: 29, type: "marker-overlay",  order: 550,
+        name: "Large Icebergs",
+        icon: "",
+        comment: "",
+        style: 'aio-label-marker',
+        data: {
+          'Weddell Sea':                {coords: [-73,        -45],       lvl: 3, style: "-blue"}
     }}}
 
 
