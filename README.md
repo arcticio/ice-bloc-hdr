@@ -1,6 +1,6 @@
 # ice-bloc-hdr
 
-## Incremental full re-write happening...
+## Incremental full re-write happening....
 
 ### To-Do
 
